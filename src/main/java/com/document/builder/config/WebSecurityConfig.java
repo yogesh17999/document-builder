@@ -60,6 +60,7 @@ public class WebSecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests().antMatchers("/auth/**").permitAll()
                 .and().authorizeRequests().antMatchers("admin/").hasAnyRole("ADMIN")
+                .and().authorizeRequests().antMatchers("user/**").hasAnyRole("USER","ADMIN")
                 .anyRequest().authenticated();
         http.headers().frameOptions().sameOrigin();
 

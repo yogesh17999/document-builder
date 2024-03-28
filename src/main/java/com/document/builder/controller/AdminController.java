@@ -20,6 +20,7 @@ public class AdminController {
     @PostMapping("/upload/document")
     private String uploadDocument(@RequestPart MultipartFile document, @RequestPart String variable) throws IOException {
             adminService.uploadDocument(document,variable);
+
         return "success";
     }
 }

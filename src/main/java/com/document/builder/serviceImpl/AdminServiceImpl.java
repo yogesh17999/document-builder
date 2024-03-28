@@ -30,8 +30,6 @@ public class AdminServiceImpl implements AdminService {
         log.info("file : "+ document.getOriginalFilename() );
         Path path = Paths.get(filePath+File.separator+document.getOriginalFilename());
         Files.write(path,document.getBytes());
-       // documentRepository.save(Document.builder().email("email",variable,path,new Timestamp(System.currentTimeMillis()),new Timestamp(System.currentTimeMillis())));
-
-
+        documentRepository.save(Document.builder().email("email").documentPath(String.valueOf(path)).variables(variable).createdDate(new Timestamp(System.currentTimeMillis())).updatedDate(new Timestamp(System.currentTimeMillis())).build());
     }
 }
